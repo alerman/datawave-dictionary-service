@@ -100,6 +100,15 @@ public class DataDictionaryOperations<DESC extends DescriptionBase<DESC>,DICT ex
         return dataDictionary;
     }
     
+    @RequestMapping(path = "/thymeForAChange")
+    @Timed(name = "dw.dictionary.data.get", absolute = true)
+    public String thyme(@RequestParam(required = false) String modelName, @RequestParam(required = false) String modelTableName,
+                    @RequestParam(required = false) String metadataTableName, @RequestParam(name = "auths", required = false) String queryAuthorizations,
+                    @RequestParam(defaultValue = "") String dataTypeFilters, @AuthenticationPrincipal ProxiedUserDetails currentUser) throws Exception {
+        
+        return "iCanFeelTheChange";
+    }
+    
     /**
      * Upload a collection of descriptions to load into the database. Apply a query model to the provided FieldDescriptions before storing.
      *
